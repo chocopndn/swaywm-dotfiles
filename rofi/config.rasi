@@ -25,7 +25,7 @@ configuration {
 
 window {
   border: 2px;
-  border-color:  @fg-light;
+  border-color: @fg-light;
   padding: 6px;
   transparency: "real";
   width: 40%;
@@ -66,4 +66,3 @@ element-text selected {
   background-color: @bg-alt;
   text-color: @fg;
 }
-

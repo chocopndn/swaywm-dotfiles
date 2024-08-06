@@ -27,17 +27,15 @@ magenta = '#d3869b'
 cyan    = '#89b482'
 white   = '#d4be98'
 
-
 [window]
   [window.padding]
   x = 10
   y = 10
 
-
 [font]
 normal = { family = "JetBrainsMonoNerd font", style = "Regular" }
-bold = { family = "JetBrainsMonoNerd font", style = "Bold" }
+bold   = { family = "JetBrainsMonoNerd font", style = "Bold" }
 italic = { family = "JetBrainsMonoNerd font", style = "Italic" }
-size = 11.5
+size   = 11.5
 offset = { x = 0, y = 0 }
 glyph_offset = { x = 0, y = 0 }
