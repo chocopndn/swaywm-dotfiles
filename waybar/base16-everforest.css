@@ -1,0 +1,25 @@
+/*
+*
+* Base16 Everforest
+* Author: Sainnhe Park (https://github.com/sainnhe)
+*
+*/
+
+/* Gruvbox Material Medium Dark Theme */
+@define-color base00 #282828; /* Background */
+@define-color base01 #3c3836; /* Background Dark */
+@define-color base02 #504945; /* Selection and Bright Background */
+@define-color base03 #665c54; /* Comments, Invisibles, Line Highlighting */
+@define-color base04 #bdae93; /* Dark Foreground (Lowered Brightness) */
+@define-color base05 #d5c4a1; /* Default Foreground, Caret, Delimiters, Operators */
+@define-color base06 #ebdbb2; /* Light Foreground (Punctuation, Constants, ID Declarations, Highlighting, Annotations) */
+@define-color base07 #fbf1c7; /* Bright Foreground (Status Bars, Line Number, Git Gutter, Guide Lines, ...) */
+@define-color base08 #83a598; /* Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted */
+@define-color base09 #d3869b; /* Integers, Boolean, Constants, XML Attributes, Markup Link Url */
+@define-color base0A #fabd2f; /* Classes, Markup Bold, Search Text Background */
+@define-color base0B #b8bb26; /* Strings, Inherited Class, Markup Code, Diff Inserted */
+@define-color base0C #8ec07c; /* Support, Regular Expressions, Escape Characters, Markup Quotes */
+@define-color base0D #83a598; /* Functions, Methods, Attribute IDs, Headings */
+@define-color base0E #d3869b; /* Keywords, Storage, Selector, Markup Italic, Diff Changed */
+@define-color base0F #d65d0e; /* Tags, Markup Quote, Entity Name, Section Heading */
+

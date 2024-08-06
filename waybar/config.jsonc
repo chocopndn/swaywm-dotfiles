@@ -1,0 +1,156 @@
+// -*- mode: jsonc -*-
+{
+    "position": "top",
+    "height": 30,
+    "width": "auto",
+    "spacing": 0,
+    "margin-top": 8,
+    "margin-left": 8,
+    "margin-right": 8,
+    "modules-left": [
+//        "idle_inhibitor",
+//        "custom/separator",
+//        "power-profiles-daemon",
+        "sway/workspaces",
+//        "sway/mode", // disappears, adding left separator in format
+        "sway/scratchpad", // disappears, adding left separator in format
+	"custom/yearprogress"
+    ],
+    "modules-center": [
+        "mpris"
+    ],
+    "modules-right": [
+	"pulseaudio",
+	"custom/separator",
+        "network",
+        "custom/separator",
+        // "cpu",
+        // "memory",
+        // "temperature",
+//        "backlight",
+//        "custom/separator",
+//        "sway/language",
+//        "custom/separator",
+//        // "keyboard-state",
+        // "custom/separator",
+        "battery",
+        "custom/separator",
+        "clock"
+        // "tray"
+    ],
+    "sway/mode": {
+        "format": " / {}"
+    },
+    "sway/scratchpad": {
+        "format": " / SCRATHPAD: {count}",
+        "show-empty": false,
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "awake",
+            "deactivated": "dizzy"
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": "{:%a %I:%M}",
+//        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+//        "format-alt": "{:%Y/%m/%d}"
+    },
+    "cpu": {
+        "format": "cpu: {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "memory: {}%"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 60,
+        "format-critical": "CRITICAL: {temperatureC}°C",
+        "format": "temp: {temperatureC}°C",
+    },
+    "backlight": {
+        "scroll-step": 5,
+        "format": "brightness: {percent}%",
+    },
+    "battery": {
+        "states": {
+            //"good": 95,
+            "warning": 30,
+            "critical": 10
+        },
+        "format": "BATT: {capacity}%",
+        "format-full": "full: {capacity}%",
+        "format-charging": "CHARGING: {capacity}%",
+        "format-plugged": "plugged: {capacity}%",
+//        "format-alt": "time: {time}",
+        "interval": 5,
+	"tooltip": false
+        //"format-good": "", // An empty format will hide the module
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "power-profiles-daemon": {
+      "format": "{profile}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true
+    },
+    "network": {
+        "format-wifi": "WIFI: {essid}",
+        "format-ethernet": "eth: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "disconnected",
+        "format-disabled": "disabled",
+	"tooltip": false
+    },
+    "mpris": {
+        "format": "{title}",
+        "format-paused": "{title}",
+        "max-length": 40,
+        "interval": 1,
+	"tooltip": false
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "VOL: {volume}",
+        "format-bluetooth": "VOL: {volume}%",
+        "format-bluetooth-muted": "MUTED:",
+//        "format-muted": "MUTED {format_source}",
+//        "format-source": "mic: {volume}%",
+//        "format-source-muted": "micmuted",
+        "max-volume": 150,
+	"tooltip": false
+//        "on-click": "pavucontrol"
+    },
+    "sway/language": {
+        "format": {},
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+    "keyboard-state": {
+        "numlock": true, "capslock": true,
+        "format": {
+            "numlock": "N",
+            "capslock": "C"
+        }
+    },
+    "custom/yearprogress": {
+        "format": "year progress: {}",
+        "exec": "~/.config/waybar/yearprogress.sh",
+        "interval": 300
+    },
+    "custom/separator": {
+        "format": " / ",
+        "tooltip": false
+    }
+}
