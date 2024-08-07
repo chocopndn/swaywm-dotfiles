@@ -8,8 +8,7 @@
     "margin-right": 8,
     "modules-left": [
         "sway/workspaces",
-        "sway/scratchpad",
-        "custom/yearprogress"
+        "sway/scratchpad"
     ],
     "modules-center": [],
     "modules-right": [
@@ -48,11 +47,11 @@
         "format-disconnected": "disconnected",
         "format-disabled": "disabled"
     },
-    "pulseaudio": {
+     "pulseaudio": {
         "scroll-step": 5,
-        "format": "VOL: {volume}",
+        "format": "VOL: {volume}%",
         "format-bluetooth": "VOL: {volume}%",
-        "max-volume": 150
+        "max-volume": 100
     },
     "custom/separator": {
         "format": " / "
