@@ -4,14 +4,16 @@ These configuration files are designed for my coding and school purposes, provid
 
 ## System Information
 
-<img src="./screenshots/1.png" alt="Screenshot" align="right" width="400px">
-
 - **OS:** [Arch Linux](https://archlinux.org)
 - **WM:** [SwayWM](https://swaywm.org)
 - **Terminal:** [Alacritty](https://github.com/alacritty/alacritty)
 - **Bar:** [Waybar](https://github.com/Alexays/Waybar)
 - **Shell:** [ZSH](https://www.zsh.org/)
 - **Application Launcher:** [Rofi](https://github.com/davatorium/rofi)
+
+## Screenshot
+
+<img src="./screenshots/1.png" alt="Screenshot" width="500">
 
 ## Fonts
 
