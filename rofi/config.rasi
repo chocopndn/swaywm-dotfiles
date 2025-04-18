@@ -1,3 +1,9 @@
+/* ==================================================
+   Rofi Configuration  
+   Copyright (c) 2025 chocopndn  
+   GitHub: https://github.com/chocopndn
+   ================================================== */
+
 configuration {
   font: "RobotoMonoNerdMono Nerd Font 11.5";
 
@@ -16,18 +22,17 @@ configuration {
   bg: #282828;
   bg-alt: #3c3836;
   fg: #ebdbb2;
-  fg-alt: #ebdbb2;
-  fg-light: #a89984; 
+  fg-light: #a89984;
 
   background-color: @bg;
-  text-color: @fg-alt;
+  text-color: @fg;
 }
 
 window {
   border: 2px;
   border-color: @fg-light;
+  border-radius: 10px;
   padding: 6px;
-  transparency: "real";
   width: 40%;
 }
 
@@ -51,7 +56,7 @@ listview {
 scrollbar {
   background-color: @bg-alt;
   handle-color: @fg;
-  margin: 0 0 0 6px;
+  margin-left: 6px;
 }
 
 element {
@@ -66,3 +71,4 @@ element-text selected {
   background-color: @bg-alt;
   text-color: @fg;
 }
+

@@ -1,4 +1,13 @@
+// ===================================================================
+//  Waybar Configuration
+//  Copyright (c) 2025 chocopndn
+//  GitHub: https://github.com/chocopndn
+// ===================================================================
+
 {
+    // ==============================
+    //  General Settings
+    // ==============================
     "position": "top",
     "height": 30,
     "width": "auto",
@@ -6,6 +15,10 @@
     "margin-top": 8,
     "margin-left": 8,
     "margin-right": 8,
+
+    // ==============================
+    //  Modules
+    // ==============================
     "modules-left": [
         "sway/workspaces",
         "sway/scratchpad"
@@ -14,21 +27,31 @@
     "modules-right": [
         "pulseaudio",
         "custom/separator",
-        "network",
+//        "network",
         "custom/separator",
         "battery",
         "custom/separator",
         "clock"
     ],
+
+    // ==============================
+    //  Module Configurations
+    // ==============================
+
+    // Scratchpad
     "sway/scratchpad": {
-        "format": " / SCRATHPAD: {count}",
+        "format": " / SCRATCHPAD: {count}",
         "show-empty": false,
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
+
+    // Clock
     "clock": {
         "format": "{:%a %I:%M}"
     },
+
+    // Battery
     "battery": {
         "states": {
             "warning": 30,
@@ -40,20 +63,27 @@
         "format-plugged": "plugged: {capacity}%",
         "interval": 5
     },
+
+    // Network
     "network": {
         "format-wifi": "WIFI: {essid}",
-        "format-ethernet": "eth: {ipaddr}/{cidr}",
+        "format-ethernet": "ETH: {ipaddr}/{cidr}",
         "tooltip-format": "{ifname} via {gwaddr}",
         "format-disconnected": "disconnected",
         "format-disabled": "disabled"
     },
-     "pulseaudio": {
+
+    // Audio (PulseAudio)
+    "pulseaudio": {
         "scroll-step": 5,
         "format": "VOL: {volume}%",
         "format-bluetooth": "VOL: {volume}%",
         "max-volume": 100
     },
+
+    // Custom Separator
     "custom/separator": {
         "format": " / "
     }
 }
+

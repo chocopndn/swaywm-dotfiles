@@ -1,6 +1,17 @@
-# Basic Settings
+# ==================================================
+#  Sway Configuration - chocopndn
+#  Copyright (c) 2025 chocopndn
+#  GitHub: https://github.com/chocopndn
+# ==================================================
+
+
+
+# ==============================
+#  Basic Settings
+# ==============================
+
 set $mod Mod4
-set $term alacritty
+set $term kitty
 
 set $left h
 set $down j
@@ -8,15 +19,23 @@ set $up k
 set $right l
 
 floating_modifier $mod normal
+focus_follows_mouse no
+output * bg ~/.config/wallpaper/wallpaper.jpg fill
+corner_radius 10
 
-# Key Bindings
+# ==============================
+#  Key Bindings
+# ==============================
+
+## Application Launching
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id "rofi -show drun -no-default-config -config ~/.config/rofi/config.rasi"
-bindsym $mod+Shift+c reload
-bindsym Print exec --no-startup-id xfce4-screenshooter
 
-# Window Focus and Movement
+## Window Management
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+
+## Window Focus
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
@@ -26,7 +45,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Window Movement
+## Window Movement
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
@@ -36,7 +55,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Workspaces
+## Workspaces
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -47,6 +66,7 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
+
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
@@ -58,7 +78,7 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-# Layout Management
+## Layout Management
 bindsym $mod+b splith
 bindsym $mod+v splitv
 bindsym $mod+s layout stacking
@@ -71,7 +91,7 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-# Resizing Mode
+## Resizing Mode
 mode "resize" {
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
@@ -86,7 +106,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Input Device Configuration
+# ==============================
+#  Input Devices
+# ==============================
+
 input "1267:12312:ELAN0501:00_04F3:3018_Touchpad" {
     dwt enabled
     tap enabled
@@ -94,25 +117,47 @@ input "1267:12312:ELAN0501:00_04F3:3018_Touchpad" {
     natural_scroll enabled
 }
 
-# Status Bar
-bar { 
-     swaybar_command waybar
+# ==============================
+#  Status Bar & Effects
+# ==============================
+
+bar {
+    swaybar_command waybar
 }
 
-# Window Borders and Gaps
+layer_effects "waybar" {
+    blur enable;
+    blur_ignore_transparent enable;
+    shadows enable;
+    shadow_color #0000007F;
+    shadow_offset 2;
+    corner_radius 5;
+}
+
+# ==============================
+#  Window Borders and Gaps
+# ==============================
+
 default_border pixel 2
-default_floating_border none
+default_floating_border pixel 2
 titlebar_padding 1
 titlebar_border_thickness 0
 gaps inner 8
 
-# Audio Control Bindings
+# ==============================
+#  Audio & Brightness
+# ==============================
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/waybar/volume_control.sh raise
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/waybar/volume_control.sh lower
-bindsym XF86AudioMute exec --no-startup-id ~/.config/waybar/volume_control.sh mute
 
+bindsym XF86MonBrightnessUp exec brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 
-# Color Settings
+# ==============================
+#  Colors
+# ==============================
+
 set $bg #282828
 set $bg_2 #504945
 set $fg #ebdbb2
@@ -128,17 +173,43 @@ set $aqua #689d68
 set $gray #a89984
 set $darkgray #1d2021
 
-# Client State Colors
+## Client State Colors
 client.focused          $yellow $bg_2     $fg     $yellow   $fg
 client.focused_inactive $bg_2   $darkgray $fg_2   $darkgray $bg_2
 client.unfocused        $bg_2   $bg       $gray   $bg       $darkgray
 client.urgent           $red    $red      $fg_1   $red      $red
 
-# Additional Settings
-exec_always udiskie -t
-focus_follows_mouse no
-output * bg ~/.config/wallpaper/wallpaper.jpg fill
+# ==============================
+#  Floating Windows Rules
+# ==============================
 
-# Brightness control
-bindsym XF86MonBrightnessUp exec brightnessctl s +10%
-bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
+for_window [app_id="blueman-manager"] floating enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="pavucontrol"] floating enable, resize set width 40 ppt height 30 ppt
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [window_role="About"] floating enable
+for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
+for_window [title="Picture in picture"] floating enable, sticky enable
+for_window [title="Save File"] floating enable
+
+# ==============================
+#  Additional Settings
+# ==============================
+
+seat seat0 xcursor_theme "Capitaine Cursors (Gruvbox) - White" 24
+
+exec_always udiskie -t
+
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme "Gruvbox-Dark"
+    gsettings set org.gtk.Settings.ColorScheme color-scheme 'prefer-dark'
+    gsettings set org.gnome.desktop.interface icon-theme "Gruvbox-Plus-Dark"
+    gsettings set org.gnome.desktop.interface cursor-theme "Capitaine Cursors (Gruvbox) - White"
+    gsettings set org.gnome.desktop.interface cursor-size 24
+    gsettings set org.gnome.desktop.interface font-name "JetBrainsMono Nerd Font 10"
+}
